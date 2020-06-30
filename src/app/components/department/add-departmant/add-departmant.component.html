@@ -1,0 +1,61 @@
+<section class="mat-typography title-group">
+  <mat-card>
+    <a routerLink="">Dashboard</a>
+    <a> / </a>
+    <a routerLink="/departments">Danh sách phòng ban</a>
+    <a> / Thêm phòng ban</a>
+  </mat-card> 
+</section>
+<div fxLayout="row" >
+  <mat-card fxFlex="50">
+    <div class="card-header">       
+      <a fxLayoutAlign=" center">Thêm phòng ban</a>
+      <mat-divider></mat-divider>
+    </div>
+    <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+  
+      <div class="form-group">
+        <div fxLayout="row">
+          <div>
+            <mat-icon class="mat-12" >house</mat-icon>
+          </div>
+          <div fxFlex ="100">
+            <mat-form-field class="input-style" fxFill>
+              <input matInput placeholder="Tên phòng ban" name="depName" class="form-control" formControlName="depName">
+            </mat-form-field>
+          </div>
+        </div>
+        <ng-container *ngFor="let validation of validation_messages.depName">
+          <mat-error
+            *ngIf="formGroup.get('depName').hasError(validation.type) && (formGroup.get('depName').dirty || formGroup.get('depName').touched)">
+            {{validation.message}}</mat-error>
+        </ng-container>
+      </div>
+  
+      <div class="form-group">
+  
+        <div fxLayout="row">
+          <div>
+            <mat-icon class="mat-12" >short_text</mat-icon>
+          </div>
+          <div fxFlex ="100">
+            <mat-form-field class="input-style" fxFill>
+              <input matInput placeholder="Tên viết tắt" name="depShort" class="form-control" formControlName="depShort">
+            </mat-form-field>
+          </div>
+        </div>
+  
+        <ng-container *ngFor="let validation of validation_messages.depShort">
+          <mat-error
+            *ngIf="formGroup.get('depShort').hasError(validation.type) && (formGroup.get('depShort').dirty || formGroup.get('depShort').touched)">
+            {{validation.message}}</mat-error>
+        </ng-container>
+      </div>
+  
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" class="submit-button" [disabled]="!formGroup.valid"
+          type="submit">Save</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

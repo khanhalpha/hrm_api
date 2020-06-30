@@ -1,0 +1,64 @@
+<section class="mat-typography title-group">
+  <mat-card>
+    <a routerLink="">Dashboard</a>
+    <a> / </a>
+    <a routerLink="/role-screen">Phân quyền màn hình</a>
+    <a> / Chỉnh sửa phân quyền</a>
+  </mat-card>
+</section>
+
+<div fxLayout="row">
+  <mat-card fxFlex="60">
+    <div class="card-header">
+      <a fxLayoutAlign=" center">Phân quyền màn hình {{nameScreen}}</a>
+      <mat-divider></mat-divider>
+    </div>
+    <mat-card-content>
+      <div>
+        <div class="form-group">
+          <div fxLayout="row">
+            <div fxFlex="50">
+              <h3>Quyền hạn</h3>
+            </div>
+            <div fxFlex="20">
+              <h3>Sử dụng</h3>
+            </div>
+            <div fxFlex="10">
+              <h3>Create</h3>
+            </div>
+            <div fxFlex="10">
+              <h3>Update</h3>
+            </div>
+            <div fxFlex="10">
+              <h3>Delete</h3>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" *ngFor="let item of roleScreen">
+          <div fxLayout="row" fxLayoutAlign="center">
+            <div fxFlex="50">
+              <p>{{item.rolename}}</p>
+            </div>
+            <div fxFlex="20">
+              <mat-checkbox [checked]="item.access" [(ngModel)]="item.access" (change)="onChange($event)">
+              </mat-checkbox>
+            </div>
+            <div fxFlex="10">
+              <mat-checkbox [checked]="item.create" [(ngModel)]="item.create"></mat-checkbox>
+            </div>
+            <div fxFlex="10">
+              <mat-checkbox [checked]="item.edit" [(ngModel)]="item.edit"></mat-checkbox>
+            </div>
+            <div fxFlex="10">
+              <mat-checkbox [checked]="item.delete" [(ngModel)]="item.delete"></mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" (click)="saveData()">Save</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

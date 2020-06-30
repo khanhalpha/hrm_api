@@ -1,0 +1,84 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header" fxLayout="row" div fxLayoutAlign="space-between center">
+  <div>
+    HRM Brycen
+    <span class="nav-tool-items" style="margin-left: 100px;">
+      <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+    </span>
+  </div>
+  <div fxLayout="row" fxLayoutGap="20px">
+
+    <button mat-icon-button class="matero-toolbar-button" [matMenuTriggerFor]="menu">
+      <mat-icon>translate</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let lang of langs | keyvalue" >
+        <span>{{ lang.value }}</span>
+      </button>
+    </mat-menu>
+
+
+
+    <button mat-icon-button (click)="directProfile()">
+      <mat-icon class="mat-18" matBadge="22" matBadgeColor="warn">account_circle</mat-icon>
+    </button>
+    <a mat-button mat-raised-button routerLinkActive="active" *ngIf="isLoggedIn" (click)="logout()">Log Out</a>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+    [fixedTopGap]>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of listMenu"  routerLink="/{{item.screenURL}}">
+        <mat-icon>{{item.icon}}</mat-icon> {{item.screenName}}
+      </a>
+      <!-- <a mat-list-item routerLink="">
+        <mat-icon>home</mat-icon>Dashboard
+      </a>
+      <a mat-list-item routerLink="/departments">
+        <mat-icon>dashboard</mat-icon> Departments
+      </a>
+      <a mat-list-item routerLink="/employees">
+        <mat-icon>person</mat-icon> Employees
+      </a>
+      <a mat-list-item routerLink="/users">
+        <mat-icon>security</mat-icon> User
+      </a> -->
+      <!-- <a mat-list-item (click)="toggleMenu()">
+        <mat-icon mat-list-icon>business</mat-icon>Phân quyền hệ thống
+        <mat-icon *ngIf="!showMenu">chevron_right</mat-icon>
+        <mat-icon *ngIf="showMenu">expand_more</mat-icon>
+      </a> -->
+      <!-- <mat-nav-list class="sidenav-submenu" *ngIf="showMenu">
+        <a mat-list-item routerLink="/role-screen"> Màn hình</a>
+        <a mat-list-item > Submenu Item 2</a>
+        <a mat-list-item > Submenu Item 3</a>
+        
+      </mat-nav-list> -->
+      <!-- <a mat-list-item>
+        <mat-icon>location_on</mat-icon> Maps
+      </a>
+      <a mat-list-item>
+        <mat-icon>calendar_today</mat-icon> Calendar
+      </a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <div>
+
+    <router-outlet></router-outlet>
+  
+  </div>
+</mat-sidenav-container>
+<!-- <div>
+
+  <router-outlet></router-outlet>
+
+</div> -->
+<footer style="padding: 20px; margin-top: 10px;">
+  Footer
+</footer>

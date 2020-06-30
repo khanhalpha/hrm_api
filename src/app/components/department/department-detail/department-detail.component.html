@@ -1,0 +1,31 @@
+<section class="mat-typography title-group">
+  <mat-card>
+    <a routerLink="">Dashboard</a>
+    <a> / </a>
+    <a routerLink="/departments">Danh sách phòng ban</a>
+    <a> / Chi tiết phòng ban</a>
+  </mat-card> 
+</section>
+<div fxLayout="row" >
+<mat-card *ngIf = "department">
+    <div class="card-header">       
+      <a fxLayoutAlign=" center">Chỉnh sửa phòng ban</a>
+      <mat-divider></mat-divider>
+    </div>
+    <form (ngSubmit)="onSubmit()" class="example-form">
+        <mat-form-field  class="example-full-width">
+            <!-- <mat-label>Tên phòng ban</mat-label> -->
+            <input matInput placeholder="Tên phòng ban" required  [(ngModel)] = "department.departmentName" name="departmentName">
+          </mat-form-field>
+  
+          <mat-form-field  class="example-full-width">
+            <!-- <mat-label>Tên viết tắt</mat-label> -->
+            <input matInput placeholder="Tên viết tắt" required [(ngModel)] = "department.departmentShort" name="departmentShort">
+          </mat-form-field>
+  
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" >Save</button>
+           </div>
+    </form>
+</mat-card> 
+</div>

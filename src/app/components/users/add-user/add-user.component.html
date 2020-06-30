@@ -1,0 +1,100 @@
+<section class="mat-typography title-group">
+    <mat-card>
+      <a routerLink="">Dashboard</a>
+      <a> / </a>
+      <a routerLink="/users">Danh sách User</a>
+      <a> / Thêm User</a>
+    </mat-card>
+  </section>
+  <div fxLayout="row">
+    <mat-card fxFlex="40">
+      <div class="card-header">
+        <a fxLayoutAlign=" center">Thêm User</a>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-card-content fxLayoutAlign="center center" *ngIf = "user">
+        <form class="create-form" [formGroup]="userForm" novalidate (ngSubmit)="onSubmit(userForm.value)">
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12">person</mat-icon>
+              </div>
+              <div fxFill>
+                <mat-form-field style="width: 250px;">
+                  <input matInput placeholder="Username" class="form-control" formControlName="username">
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <ng-container *ngFor="let validation of validation_messages.username">
+              <mat-error
+                *ngIf="userForm.get('username').hasError(validation.type) && (userForm.get('username').dirty || userForm.get('username').touched)">
+                {{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+  
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12">vpn_key</mat-icon>
+              </div>
+              <div fxFill>
+                <mat-form-field style="width: 250px;">
+                  <input type="password" matInput placeholder="Password" name="password" formControlName="password">
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <mat-error
+                *ngIf="userForm.get('password').hasError(validation.type) && (userForm.get('password').dirty || userForm.get('password').touched)">
+                {{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12">face</mat-icon>
+              </div>
+              <div fxFill>
+                <mat-form-field style="width: 250px;">
+                  <mat-label>Nhân viên</mat-label>
+                  <mat-select name="employee" formControlName="employee">
+                    <!-- <mat-option *ngFor="let employee of employees" [value]="employee.id">
+                      {{employee.fullname}}
+                    </mat-option> -->
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12">security</mat-icon>
+              </div>
+              <div fxFill>
+                <mat-form-field style="width: 250px;">
+                  <mat-label>Quyền hạn</mat-label>
+                  <mat-select formControlName="roles" multiple>
+                    <mat-option *ngFor="let role of roleList" [value]="role">{{role}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+  
+          <div fxLayoutAlign="center center">
+            <div>
+              <button mat-raised-button class="submit-button" color="primary" type="submit">Save</button>
+            </div>
+          </div>
+  
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

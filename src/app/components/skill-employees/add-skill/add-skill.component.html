@@ -1,0 +1,130 @@
+<div fxLayout="column" fxLayoutGap="10px">
+    <div>
+        <section class="mat-typography title-group">
+            <h1>Thông tin cá nhân</h1>
+        </section>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+        <mat-card class="example-card" fxFlex="70" *ngIf="employee">
+            <mat-card-content>
+                <div style="margin: 10px;" fxLayout="column">
+                    <div fxLayout="column" fxLayoutGap="10px">
+                        <div class="layout1" fxLayout="row" fxLayoutGap="20px" >
+                            <div>
+                                <mat-icon class="mat-12">person</mat-icon>
+                            </div>
+                            <div>
+                                <p style="font-size: 18px; margin-top: 3px;" >{{employee.fullname}}</p>
+                            </div>
+                        </div>
+                        <div class="layout2" fxLayout="row" fxLayoutGap="20px">
+                            <div>
+                                <mat-icon class="mat-12">cake</mat-icon>
+                            </div>
+                            <div>
+                                <p style="font-size: 18px; margin-top: 3px;">{{employee.birthday | date:'dd/MM/yyyy'}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="layout2" fxLayout="row" fxLayoutGap="20px">
+                            <mat-icon class="mat-12">phone</mat-icon>
+                        </div>
+                        <div class="layout2" fxLayout="row" fxLayoutGap="20px">
+                            <mat-icon class="mat-12">email</mat-icon>
+                        </div>
+                        <div class="layout2" fxLayout="row" fxLayoutGap="20px">
+                            <div>
+                                <mat-icon class="mat-12">house</mat-icon>
+                            </div>
+                            <div>
+                                <p style="font-size: 18px; margin-top: 3px;">{{employee.department.departmentName}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+
+        </mat-card>
+        <mat-card class="example-card" fxFlex="30" >
+            <mat-card-content>
+                <div style="margin: 20px;" px fxLayout="column" fxLayoutAlign="space-between center">
+                    <div>
+                        <img style="width: 150px; height: 150px; border-radius: 50%;" mat-card-image
+                            src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                    </div>
+                    <div>
+                        <h1 *ngIf="employee">{{employee.fullname}}</h1>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+        <mat-card class="example-card" fxFlex="70">
+            <mat-card-content>
+                <div style="margin: 10px;" fxLayout="column">
+                    <div fxLayout="column" fxLayoutGap="10px">
+                        <div class="layout1" fxLayout="row" fxLayoutGap="20px">
+                            <div>
+                                <mat-icon class="mat-12">menu_book</mat-icon>
+                            </div>
+                            <div>
+                                <p style="font-size: 18px; margin-top: 3px;">Skill cá nhân</p>
+                            </div>
+                        </div>
+                        <div class="layout2" fxLayout="row" fxLayoutGap="20px" *ngFor="let skill of skills">
+                   
+                            <div>
+                                <p style="font-size: 18px; margin-top: 3px; width: 120px;">{{skill.skill.skillname}}
+                                </p>
+                            </div>
+                            <div>
+                                <p style="font-size: 18px; margin-top: 3px; width: 80px;">{{skill.level.levelname}}</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 18px; margin-top: 3px;">{{skill.level.leveldescription}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <div fxFlex="30">
+
+        </div>
+    </div>
+
+
+    <div fxLayout="row" fxLayoutGap="20px" fxFlex>
+        <mat-card class="example-card" fxFlex="70">
+            <mat-card-content>
+                <div style="margin: 10px;" fxLayout="column">
+                    <div fxLayout="column" fxLayoutGap="10px">
+                        <div class="layout1" fxLayout="row" fxLayoutGap="20px">
+                            <div>
+                                <mat-icon class="mat-12">history_edu</mat-icon>
+                            </div>
+                            <div>
+                                <p style="font-size: 18px; margin-top: 3px;">Lịch sử làm việc</p>
+                            </div>
+                        </div>
+                        <div class="layout2" fxLayout="row" fxLayoutGap="20px" >
+                   
+                           
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        
+        <div fxFlex="30">
+
+        </div>
+    </div>
+
+</div>

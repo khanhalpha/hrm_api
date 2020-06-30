@@ -1,0 +1,45 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+}
+ 
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+.example-button-row {
+  display: table-cell;
+}
+
+.example-button-row button {
+  display: table-cell;
+  margin-right: 8px;
+}
+
+.mat-icon {
+  width: 24px;
+  margin: 15px 20px 10px 0;
+}
+.card-header
+{
+  margin-bottom: 20px;
+}
+.card-header a
+{
+  font-size: large;
+  font-weight: 400;
+  margin-bottom: 10px;
+}

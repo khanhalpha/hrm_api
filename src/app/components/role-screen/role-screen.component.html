@@ -1,0 +1,94 @@
+<section class="mat-typography title-group">
+  <mat-card>
+    <a routerLink="">Dashboard</a>
+    <a> / Phân quyền màn hình</a>
+  </mat-card>
+</section>
+<div style="height: 5px;">
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+</div>
+<div class="mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <ng-container *ngFor="let table of tables; let i = index" [matColumnDef]="table.columnDef">
+      <mat-header-cell *matHeaderCellDef>{{ table.header }}
+        <!-- <button mat-icon-button matTooltip="edit" *ngIf="i!==0 && i!=tables.length-1">
+          <mat-icon class="mat-18">edit</mat-icon>
+        </button> -->
+      </mat-header-cell>
+      <mat-cell class="text-center" *matCellDef="let row">
+        <!-- column 1 ten man hinh -->
+        <td *ngIf="i==0"> {{row[table.columnDef]}} </td>
+        <!-- colum giua ten cac man hinh -->
+        <mat-checkbox *ngIf="i!=0 && i!=tables.length-1" [checked]="row[table.columnDef]">
+        </mat-checkbox>
+        <!-- column cuoi la button chinh sua -->
+        <button mat-icon-button matTooltip="edit" *ngIf="i==tables.length-1" (click)="redirectToEdit(row[table.columnDef])">
+          <mat-icon class="mat-18">edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+</div>
+
+
+<!-- <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">
+
+  <ng-container *ngFor="let table of tables" [matColumnDef]="table.columnDef">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox>
+        {{table.header}}</mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox >
+      </mat-checkbox>
+    </td>
+
+  </ng-container> -->
+<!-- 
+  <ng-container matColumnDef="department">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox [checked]="isAllwriteSelected()" [indeterminate]="!isAllwriteSelected()">
+        Department</mat-checkbox>
+    </th>
+
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation();" [checked]="row.canwrite" [(ngModel)]="row.canwrite">
+      </mat-checkbox>
+    </td>
+
+  </ng-container>
+  <ng-container matColumnDef="projectlead">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox [checked]="isAllwriteSelected()" [indeterminate]="!isAllwriteSelected()">
+        ProjectLead</mat-checkbox>
+    </th>
+
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation();" [checked]="row.canwrite" [(ngModel)]="row.canwrite">
+      </mat-checkbox>
+    </td>
+
+  </ng-container>
+  <ng-container matColumnDef="canwrite">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox [checked]="isAllwriteSelected()" [indeterminate]="!isAllwriteSelected()">
+        Member</mat-checkbox>
+    </th>
+
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation();" [checked]="row.canwrite" [(ngModel)]="row.canwrite">
+      </mat-checkbox>
+    </td>
+
+  </ng-container> -->
+
+<!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+  </tr>
+</table> -->

@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+  }
+
+  .button-row {
+    margin-bottom: 10px;
+  }
+  .img-avatar {
+    border-radius: 50%;
+    width: 40px;
+    display: block;
+    margin: 5px;
+}

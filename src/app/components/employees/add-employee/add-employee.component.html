@@ -1,0 +1,168 @@
+<div fxLayout="column" fxLayoutGap="10px">
+  <section class="mat-typography title-group">
+    <mat-card>
+      <a routerLink="">Dashboard</a>
+      <a> / </a>
+      <a routerLink="/employees">Danh sách nhân viên</a>
+      <a> / Thêm nhân viên mới</a>
+    </mat-card>
+  </section>
+ 
+  <mat-card class="page-content" fxLayout = "column">
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
+      
+      <div fxFlex="60">
+  
+        <form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12" color="primary">person</mat-icon>
+              </div >
+              <div fxFill>
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Họ và tên" class="form-control" formControlName="fullname">
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <ng-container *ngFor="let validation of validation_messages.fullname">
+              <mat-error
+                *ngIf="exampleForm.get('fullname').hasError(validation.type) && (exampleForm.get('fullname').dirty || exampleForm.get('fullname').touched)">
+                {{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12" color="primary">face</mat-icon>
+              </div >
+              <div fxFill>
+                <mat-form-field class="input-style">
+                  <mat-label>Giới tính</mat-label>
+                  <mat-select name="gender" formControlName="gender">
+                    <mat-option *ngFor="let gender of genders" [value]="gender.id">
+                      {{gender.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div> 
+            </div>  
+          </div>
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12" color="primary">cake</mat-icon>
+              </div >
+              <div fxFill>
+                <mat-form-field class="input-style">
+                  <mat-label>Ngày sinh</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="birthday">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12" color="primary">house</mat-icon>
+              </div >
+              <div fxFill>
+                <mat-form-field class="input-style">
+                  <mat-label>Phòng ban</mat-label>
+                  <mat-select name="department" formControlName="department">
+                    <mat-option *ngFor="let department of departments" [value]="department.id">
+                      {{department.departmentName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>  
+            </div>
+            <ng-container *ngFor="let validation of validation_messages.department">
+              <mat-error
+                *ngIf="exampleForm.get('department').hasError(validation.type) && (exampleForm.get('department').dirty || exampleForm.get('department').touched)">
+                {{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12" color="primary">phone</mat-icon>
+              </div >
+              <div fxFill>
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Số điện thoại" name="PhoneNumber" formControlName="PhoneNumber" >
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <ng-container *ngFor="let validation of validation_messages.PhoneNumber">
+              <mat-error
+                *ngIf="exampleForm.get('PhoneNumber').hasError(validation.type) && exampleForm.get('PhoneNumber').hasError('pattern')">
+                {{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+  
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12" color="primary">email</mat-icon>
+              </div >
+              <div fxFill>
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Email" name="email" formControlName="email" >
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <!-- <ng-container *ngFor="let validation of validation_messages.PhoneNumber">
+              <mat-error
+                *ngIf="exampleForm.get('PhoneNumber').hasError(validation.type) && exampleForm.get('PhoneNumber').hasError('pattern')">
+                {{validation.message}}</mat-error>
+            </ng-container> -->
+          </div>
+
+          <div class="form-group">
+            <div fxLayout="row">
+              <div>
+                <mat-icon class="mat-12" color="primary">house</mat-icon>
+              </div >
+              <div fxFill>
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Địa chỉ" name="address" formControlName="address" >
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <!-- <ng-container *ngFor="let validation of validation_messages.PhoneNumber">
+              
+            </ng-container> -->
+          </div>
+
+          <div >
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit"
+                [disabled]="!exampleForm.valid">Create</button>
+            </div>
+          </div>
+  
+        </form>
+      </div>
+      <div fxFlex="40" fxLayout="column" fxLayoutAlign="center center">
+        <!-- <img class="img-avatar" src="{{avatarLink}}">
+        <button mat-stroked-button class="change-img-button" color="primary">Change Image</button> -->
+      </div>
+    </div>
+  </mat-card>
+  <!-- <div class="page-content">
+    
+  </div> -->
+</div>

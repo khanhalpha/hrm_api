@@ -1,0 +1,14 @@
+.mat-icon {
+  width: 24px;
+  margin: 15px 20px 10px 0;
+}
+.card-header
+{
+  margin-bottom: 20px;
+}
+.card-header a
+{
+  font-size: large;
+  font-weight: 400;
+  margin-bottom: 10px;
+}

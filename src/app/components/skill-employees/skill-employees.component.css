@@ -1,0 +1,6 @@
+.mat-cell .img-avatar {
+    border-radius: 50%;
+    width: 35px;
+    display: block;
+    margin: 5px;
+}

@@ -1,0 +1,85 @@
+<div fxLayout="row" fxLayoutGap="20px">
+    <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+        <mat-card [ngClass]="['text-white', 'bg-blue-500']">
+            <mat-card-title class="f-s-12 f-w-100">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div><p>New User</p></div>
+                    <div>
+                        <button mat-icon-button (click)="newUser()">
+                            <mat-icon class="mat-12">content_copy</mat-icon>
+                          </button>
+                    </div>
+                </div>
+            </mat-card-title>
+
+            <mat-card-content>
+                <h2>180,200</h2>
+                <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+                <small class="text-muted">Monthly</small>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+        <mat-card [ngClass]="['text-white', 'bg-green-500']">
+            <mat-card-title class="f-s-12 f-w-100">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div><p>Total project</p></div>
+                    <div>
+                        <button mat-icon-button >
+                            <mat-icon class="mat-12">content_copy</mat-icon>
+                          </button>
+                    </div>
+                </div>
+            </mat-card-title>
+            <mat-card-content>
+                <h2>122,111</h2>
+                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                <mtx-progress value="50" height="2px" foreground="rgba(255,255,255,1)" background='rgba(0,0,0,.5)'>
+                </mtx-progress>
+                <small class="text-muted">Monthly</small>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+        <mat-card [ngClass]="['text-white', 'bg-teal-500']">
+            <mat-card-title class="f-s-12 f-w-100">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div><p>New User</p></div>
+                    <div>
+                        <button mat-icon-button >
+                            <mat-icon class="mat-12">content_copy</mat-icon>
+                          </button>
+                    </div>
+                </div>
+            </mat-card-title>
+            <mat-card-content>
+                <h2>122,111</h2>
+                <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+                <mtx-progress value="50" height="2px" foreground="rgba(255,255,255,1)" background='rgba(0,0,0,.5)'>
+                </mtx-progress>
+                <small class="text-muted">Monthly</small>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+        <mat-card [ngClass]="['text-white', 'bg-indigo-500']">
+            <mat-card-title class="f-s-12 f-w-100">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div><p>New User</p></div>
+                    <div>
+                        <button mat-icon-button >
+                            <mat-icon class="mat-12">content_copy</mat-icon>
+                          </button>
+                    </div>
+                </div>
+            </mat-card-title>
+            <mat-card-content>
+                <h2>122,111</h2>
+                <mat-progress-bar mode="determinate" value="80"></mat-progress-bar>
+                <mtx-progress value="50" height="2px" foreground="rgba(255,255,255,1)" background='rgba(0,0,0,.5)'>
+                </mtx-progress>
+                <small class="text-muted">Monthly</small>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

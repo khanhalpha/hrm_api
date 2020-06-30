@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+  }
+
+  .button-row {
+    margin-bottom: 10px;
+  }
+
+  /* .example-button-row {
+
+    margin-bottom: 10px;
+  } */
+  .example-button-row a{
+    margin-right: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .example-button-row button {
+    display: table-cell;
+    margin-right: 8px;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .search, .registration, .property {
+    margin-right: 8px;
+  }
